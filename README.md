@@ -11,23 +11,19 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # Log file if needed
 LOG_FILE="$HOME/obsidian-daily-sync.log"
 
-# Function to log messages
 log_message() {
     echo "$(date '+%Y-%m-%d %H:%M:%S'): $1" >> "$LOG_FILE"
 }
 
-# Navigate to your repository directory
 REPO_PATH="$HOME/Documents/obsidian/brain-dump"  # REPLACE THIS WITH YOUR ACTUAL OF THE REPO
 
 log_message "=== Starting git daily sync ==="
 
-# Check if repository directory exists
 if [ ! -d "$REPO_PATH" ]; then
     log_message "ERROR: Repository directory does not exist: $REPO_PATH"
     exit 1
 fi
 
-# Navigate to repository
 cd "$REPO_PATH" || {
     log_message "ERROR: Failed to navigate to repository directory"
     exit 1
@@ -41,7 +37,6 @@ git config user.name "your-username"
 
 log_message "Git config set successfully"
 
-# Add all changes
 git add . || {
     log_message "ERROR: Failed to add changes to git"
     exit 1
@@ -49,7 +44,6 @@ git add . || {
 
 log_message "Changes added to git"
 
-# Check if there are changes to commit
 if git diff --cached --quiet; then
     log_message "INFO: No changes to commit"
     log_message "=== Sync completed (no changes) ==="
