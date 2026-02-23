@@ -5,7 +5,8 @@ Sync your obsidian notes for free via git
 2. Create a bash script
 ```bash
 #!/bin/bash
-# Setting explicit path as cron runs in a very minimal shell. It often doesn’t even know where git is.
+# Setting explicit path and ssh as cron runs in a very minimal shell. It often doesn’t even know where git is. $HOME/.ssh/key-personal - this is ppath wehre you git ssh private key is at
+export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/key-personal -o StrictHostKeyChecking=no"
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Log file if needed
