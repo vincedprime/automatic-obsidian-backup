@@ -86,3 +86,6 @@ fi
 Once done exit `:wq`
 
 My sync - https://github.com/vincedprime/brain-dump
+
+<img width="674" height="568" alt="image" src="https://github.com/user-attachments/assets/0bdb9786-5b99-4004-9b23-d88d5b93a700" />
+
